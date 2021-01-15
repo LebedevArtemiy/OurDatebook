@@ -5,15 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Datebook"
         mc:Ignorable="d"
-        Title="Ежедневник" Height="510" Width="730">
-  
-    <Grid>
+        Title="Ежедневник" Height="510" Width="730" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:DatabaseDataSet x:Key="databaseDataSet"/>
+        <CollectionViewSource x:Key="tableViewSource" Source="{Binding Table, Source={StaticResource databaseDataSet}}"/>
+    </Window.Resources>
+
+    <Grid DataContext="{StaticResource tableViewSource}">
         <Button Content="Добавить запись" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Width="125" Height="48" Click="Button_Click"/>
         <Button Content="Удалить запись" HorizontalAlignment="Left" Margin="30,108,0,0" VerticalAlignment="Top" Width="125" Height="48"/>
-        <DataGrid HorizontalAlignment="Left" Height="224" Margin="30,226,0,0" VerticalAlignment="Top" Width="125" IsReadOnly="True" CanUserAddRows="False"/> 
         <Label Content="Записанные дни:" HorizontalAlignment="Left" Margin="30,186,0,0" VerticalAlignment="Top" Height="40" Width="125"/>
-        <DataGrid HorizontalAlignment="Left" Height="372" Margin="185,78,0,0" VerticalAlignment="Top" Width="515"/>
+        <DataGrid x:Name="DateDataGrid"  HorizontalAlignment="Left" Height="372" Margin="227,78,0,0" VerticalAlignment="Top" Width="473"/>
+
         <Label Content="Записи выбранного дня:" HorizontalContentAlignment = "Center" VerticalContentAlignment = "Center" HorizontalAlignment="Left" Margin="185,30,0,0" VerticalAlignment="Top" Height="48" Width="515"/>
+        <DataGrid x:Name="tableDataGrid" IsReadOnly="True"  AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,231,501.2,30.8" RowDetailsVisibilityMode="VisibleWhenSelected" MouseDoubleClick="tabledataGrid_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="деньColumn" Binding="{Binding День}" Header="День" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="месяцColumn" Binding="{Binding Месяц}" Header="Месяц" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="годColumn" Binding="{Binding Год}" Header="Год" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>
