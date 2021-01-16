@@ -34,7 +34,13 @@ namespace Datebook
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            App.connection.Open();
+            SqlCommand command = new SqlCommand("SELECT * FROM \"Table\"", App.connection);
+            SqlDataReader reader = command.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(reader);
+            tableDataGrid.ItemsSource = dt.DefaultView;
+            App.connection.Close();
             Datebook.DatabaseDataSet databaseDataSet = ((Datebook.DatabaseDataSet)(this.FindResource("databaseDataSet")));
             // Load data into the table Table. You can modify this code as needed.
             Datebook.DatabaseDataSetTableAdapters.TableTableAdapter databaseDataSetTableTableAdapter = new Datebook.DatabaseDataSetTableAdapters.TableTableAdapter();
@@ -49,13 +55,53 @@ namespace Datebook
             var content = ci.Column.GetCellContent(ci.Item) as TextBlock;
             string id_db = content.Text;
             //MessageBox.Show("SELECT Время, До, Событие, Место FROM Table1 WHERE(Id = " + id_db + ")");
-            SqlCommand command = new SqlCommand("SELECT Время, До, Событие, Место FROM Table1 WHERE(Id = " + id_db + ")", App.connection);
+            SqlCommand command = new SqlCommand("SELECT Id, Время, До, Событие, Место FROM Table1 WHERE(Id_ = " + id_db + ")", App.connection);
             SqlDataReader reader = command.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(reader);
             DateDataGrid.ItemsSource = dt.DefaultView;
             DateDataGrid.Columns[2].Width = 100;
             DateDataGrid.Columns[3].Width = 100;
+            DateDataGrid.SelectedIndex = -1;
+            App.connection.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            
+            App.connection.Open();
+            if (tableDataGrid.SelectedIndex > -1)
+            {
+                var ci = new DataGridCellInfo(tableDataGrid.Items[tableDataGrid.SelectedIndex], tableDataGrid.Columns[0]);
+                var content = ci.Column.GetCellContent(ci.Item) as TextBlock;
+                string id_db = content.Text;
+                SqlCommand command = new SqlCommand("DELETE FROM \"Table1\" WHERE (Id_ = " + id_db + ")", App.connection);
+                command.ExecuteNonQuery();
+                command = new SqlCommand("DELETE FROM \"Table\" WHERE (Id = " + id_db + ")", App.connection);
+                command.ExecuteNonQuery();
+                tableDataGrid.ItemsSource = null;
+                command = new SqlCommand("SELECT * FROM \"Table\"", App.connection);
+                SqlDataReader reader = command.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                tableDataGrid.ItemsSource = dt.DefaultView;
+            }
+            
+            App.connection.Close();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            App.connection.Open();
+            if (DateDataGrid.SelectedIndex > -1)
+            {
+                var ci = new DataGridCellInfo(DateDataGrid.Items[DateDataGrid.SelectedIndex], DateDataGrid.Columns[0]);
+                var content = ci.Column.GetCellContent(ci.Item) as TextBlock;
+                string id_db = content.Text;
+                SqlCommand command = new SqlCommand("DELETE FROM \"Table1\" WHERE (Id = " + id_db + ")", App.connection);
+                command.ExecuteNonQuery();
+                DateDataGrid.ItemsSource = null;
+            }
             App.connection.Close();
         }
     }
