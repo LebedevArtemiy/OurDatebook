@@ -22,6 +22,7 @@ namespace Datebook
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string id_db;
         public MainWindow()
         {
             InitializeComponent();
@@ -29,7 +30,8 @@ namespace Datebook
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            new AddWindow().Show();
+            new AddWindow(this).Show();
+         
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -53,7 +55,7 @@ namespace Datebook
             App.connection.Open();
             var ci = new DataGridCellInfo(tableDataGrid.CurrentItem, tableDataGrid.Columns[0]);
             var content = ci.Column.GetCellContent(ci.Item) as TextBlock;
-            string id_db = content.Text;
+            id_db = content.Text;
             //MessageBox.Show("SELECT Время, До, Событие, Место FROM Table1 WHERE(Id = " + id_db + ")");
             SqlCommand command = new SqlCommand("SELECT Id, Время, До, Событие, Место FROM Table1 WHERE(Id_ = " + id_db + ")", App.connection);
             SqlDataReader reader = command.ExecuteReader();
@@ -62,7 +64,6 @@ namespace Datebook
             DateDataGrid.ItemsSource = dt.DefaultView;
             DateDataGrid.Columns[2].Width = 100;
             DateDataGrid.Columns[3].Width = 100;
-            DateDataGrid.SelectedIndex = -1;
             App.connection.Close();
         }
 
@@ -79,11 +80,11 @@ namespace Datebook
                 command.ExecuteNonQuery();
                 command = new SqlCommand("DELETE FROM \"Table\" WHERE (Id = " + id_db + ")", App.connection);
                 command.ExecuteNonQuery();
-                tableDataGrid.ItemsSource = null;
                 command = new SqlCommand("SELECT * FROM \"Table\"", App.connection);
                 SqlDataReader reader = command.ExecuteReader();
                 DataTable dt = new DataTable();
                 dt.Load(reader);
+                tableDataGrid.ItemsSource = null;
                 tableDataGrid.ItemsSource = dt.DefaultView;
             }
             
@@ -101,8 +102,18 @@ namespace Datebook
                 SqlCommand command = new SqlCommand("DELETE FROM \"Table1\" WHERE (Id = " + id_db + ")", App.connection);
                 command.ExecuteNonQuery();
                 DateDataGrid.ItemsSource = null;
+                command = new SqlCommand("SELECT Id, Время, До, Событие, Место FROM Table1 WHERE(Id_ = " + id_db + ")", App.connection);
+                SqlDataReader reader = command.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                DateDataGrid.ItemsSource = dt.DefaultView;
             }
             App.connection.Close();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            new AddWindow2(id_db,this).Show();
         }
     }
 }

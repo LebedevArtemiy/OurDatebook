@@ -5,22 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Datebook"
         mc:Ignorable="d"
-        Title="Ежедневник" Height="510" Width="730" Loaded="Window_Loaded">
+        Title="Ежедневник" Height="570" Width="730" Loaded="Window_Loaded">
     <Window.Resources>
         <local:DatabaseDataSet x:Key="databaseDataSet"/>
         <CollectionViewSource x:Key="tableViewSource" Source="{Binding Table, Source={StaticResource databaseDataSet}}"/>
     </Window.Resources>
 
     <Grid DataContext="{StaticResource tableViewSource}">
-        <Button Content="Добавить запись" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="125" Height="48" Click="Button_Click"/>
-        <Button Content="Удалить день" HorizontalAlignment="Left" Margin="30,78,0,0" VerticalAlignment="Top" Width="125" Height="48" Click="Button_Click_1"/>
+        <Button Content="Добавить день" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="125" Height="48" Click="Button_Click"/>
+        <Button Content="Удалить день" HorizontalAlignment="Left" Margin="30,193,0,0" VerticalAlignment="Top" Width="125" Height="48" Click="Button_Click_1"/>
         <Button Content="Удалить событие" HorizontalAlignment="Left" Margin="30,133,0,0" VerticalAlignment="Top" Width="125" Height="48" Click="Button_Click_2"/>
-        <Label Content="Записанные дни:" HorizontalAlignment="Left" Margin="30,186,0,0" VerticalAlignment="Top" Height="40" Width="125"/>
-        <DataGrid x:Name="DateDataGrid"  HorizontalAlignment="Left" Height="372" Margin="227,78,0,0" VerticalAlignment="Top" Width="473"/>
+        <Label Content="Записанные дни:" HorizontalAlignment="Left" Margin="30,241,0,0" VerticalAlignment="Top" Height="40" Width="125"/>
+        <DataGrid x:Name="DateDataGrid"  HorizontalAlignment="Left" Height="438" Margin="227,78,0,0" VerticalAlignment="Top" Width="473"/>
 
         <Label Content="Записи выбранного дня:" HorizontalContentAlignment = "Center" VerticalContentAlignment = "Center" HorizontalAlignment="Left" Margin="185,30,0,0" VerticalAlignment="Top" Height="48" Width="515"/>
-        <DataGrid x:Name="tableDataGrid" IsReadOnly="True" HorizontalAlignment="Left" Height="224" Margin="30,226,0,0" VerticalAlignment="Top" Width="175" MouseDoubleClick="tabledataGrid_MouseDoubleClick"/>
-
-
+        <DataGrid x:Name="tableDataGrid" IsReadOnly="True" HorizontalAlignment="Left" Height="230" Margin="30,286,0,0" VerticalAlignment="Top" Width="175" MouseDoubleClick="tabledataGrid_MouseDoubleClick"/>
+        <Button Content="Добавить событие" HorizontalAlignment="Left" Margin="30,78,0,0" VerticalAlignment="Top" Width="125" Height="48" Click="Button_Click_3"/>
+        
     </Grid>
 </Window>

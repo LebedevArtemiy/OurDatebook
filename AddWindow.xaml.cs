@@ -11,7 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.Data.SqlClient;
+using System.Data;
 namespace Datebook
 {
     /// <summary>
@@ -19,8 +20,10 @@ namespace Datebook
     /// </summary>
     public partial class AddWindow : Window
     {
-        public AddWindow()
+        private MainWindow pointer;
+        public AddWindow(in MainWindow pointer_)
         {
+            pointer = pointer_;
             InitializeComponent();
         }
 
@@ -31,7 +34,19 @@ namespace Datebook
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            string day = Day.Text;
+            string month = Month.Text;
+            string year = Year.Text;
+            App.connection.Open();
+            SqlCommand command = new SqlCommand("INSERT INTO \"Table\" (День, Месяц, Год) VALUES ("+ '\'' + day + '\'' + ", N\'" + month + "\', \'" + year + '\'' + ")", App.connection);
+            command.ExecuteNonQuery();
+            command = new SqlCommand("SELECT * FROM \"Table\"", App.connection);
+            SqlDataReader reader = command.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(reader);
+            pointer.tableDataGrid.ItemsSource = null;
+            pointer.tableDataGrid.ItemsSource = dt.DefaultView;
+            App.connection.Close();
         }
     }
 }

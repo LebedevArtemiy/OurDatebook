@@ -9,15 +9,15 @@
     <Grid Margin="0,0,-6.4,-1.6">
         <Grid HorizontalAlignment="Left" Height="52" Margin="30,30,0,0" VerticalAlignment="Top" Width="202">
             <Label Content="День:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="29" Width="70"/>
-            <TextBox HorizontalAlignment="Left" Height="29" Margin="80,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" TextChanged="TextBox_TextChanged"/>
+            <TextBox x:Name="Day" HorizontalAlignment="Left" Height="29" Margin="80,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" TextChanged="TextBox_TextChanged"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="52" Margin="268,30,0,0" VerticalAlignment="Top" Width="202">
             <Label Content="Месяц:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="29" Width="70"/>
-            <TextBox HorizontalAlignment="Left" Height="29" Margin="80,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" TextChanged="TextBox_TextChanged"/>
+            <TextBox x:Name="Month" HorizontalAlignment="Left" Height="29" Margin="80,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" TextChanged="TextBox_TextChanged"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="52" Margin="30,108,0,0" VerticalAlignment="Top" Width="202">
             <Label Content="Год:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="29" Width="70"/>
-            <TextBox HorizontalAlignment="Left" Height="29" Margin="80,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" TextChanged="TextBox_TextChanged"/>
+            <TextBox x:Name="Year" HorizontalAlignment="Left" Height="29" Margin="80,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" TextChanged="TextBox_TextChanged"/>
         </Grid>
         <Button Content="Создать" HorizontalAlignment="Left" Margin="345,108,0,0" VerticalAlignment="Top" Width="125" Height="48" Click="Button_Click"/>
 
