@@ -115,5 +115,35 @@ namespace Datebook
         {
             new AddWindow2(id_db,this).Show();
         }
+
+        private void setColumnsNames(int k)
+        {
+            DateDataGrid.Columns[1].Header = (k==0) ? "Время" : "Time";
+            DateDataGrid.Columns[2].Header = (k == 0) ? "До" : "To";
+            DateDataGrid.Columns[3].Header = (k == 0) ? "Событие" : "Event";
+            DateDataGrid.Columns[4].Header = (k == 0) ?  "Место" : "Place";
+            tableDataGrid.Columns[1].Header = (k == 0) ? "День" : "Day";
+            tableDataGrid.Columns[2].Header = (k == 0) ? "Месяц" : "Month";
+            tableDataGrid.Columns[3].Header = (k == 0) ?  "Год" : "Year";
+        }
+
+        private void RUS_button_Click(object sender, RoutedEventArgs e)
+        {
+            ResourceDictionary dict = new ResourceDictionary();
+            dict.Source = new Uri(String.Format("DictionaryRU.xaml"), UriKind.Relative);
+            Application.Current.Resources.MergedDictionaries.Add(dict);
+            setColumnsNames(0);
+
+
+        }
+
+        private void ENG_button_Click(object sender, RoutedEventArgs e)
+        {
+            ResourceDictionary dict = new ResourceDictionary();
+            dict.Source = new Uri(String.Format("DictionaryENG.xaml"), UriKind.Relative);
+            Application.Current.Resources.MergedDictionaries.Add(dict);
+            setColumnsNames(1);
+
+        }
     }
 }

@@ -40,7 +40,7 @@ namespace Datebook
             string sobitie = Sobitie.Text;
             string place = Place.Text;
             App.connection.Open();
-            SqlCommand command = new SqlCommand("INSERT INTO \"Table1\" (Id_, Время, До, Событие, Место) VALUES (" + daypointer + ", \'" + time + "\', \'" + dotime + "\', N\'"+ sobitie + "\', N\'" + place + "\'" + ")", App.connection);
+            SqlCommand command = new SqlCommand("INSERT INTO \"Table1\" (Id_, Время, До, Событие, Место) VALUES (" + daypointer + ", \'" + time + "\', \'" + dotime + "\', N\'" + sobitie + "\', N\'" + place + "\'" + ")", App.connection);
             command.ExecuteNonQuery();
             command = new SqlCommand("SELECT Id, Время, До, Событие, Место FROM Table1 WHERE(Id_ = " + daypointer + ")", App.connection);
             SqlDataReader reader = command.ExecuteReader();
@@ -51,6 +51,7 @@ namespace Datebook
             pointer.DateDataGrid.Columns[2].Width = 100;
             pointer.DateDataGrid.Columns[3].Width = 100;
             App.connection.Close();
+            
         }
     }
 }

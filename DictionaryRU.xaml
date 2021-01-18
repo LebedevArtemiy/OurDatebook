@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+    <v:String x:Key="MainWindow_Title">Ежедневник</v:String>
+    <v:String x:Key="but1">Добавить событие</v:String>
+    <v:String x:Key="but2">Добавить запись</v:String>
+    <v:String x:Key="but3">Удалить день</v:String>
+    <v:String x:Key="but4">Удалить запись</v:String>
+    <v:String x:Key="l1">Записанные дни:</v:String>
+    <v:String x:Key="l2">Записи выбранного дня</v:String>
+    <v:String x:Key="AddWindow1_Title">Добавление новой даты</v:String>
+    <v:String x:Key="l21">День:</v:String>
+    <v:String x:Key="l22">Месяц:</v:String>
+    <v:String x:Key="l23">Год:</v:String>
+    <v:String x:Key="b21">Создать</v:String>
+    <v:String x:Key="AddWindow2_Title">Новое событие</v:String>
+    <v:String x:Key="l31">Время:</v:String>
+    <v:String x:Key="l32">До:</v:String>
+    <v:String x:Key="l33">Событие:</v:String>
+    <v:String x:Key="l34">Место:</v:String>
+</ResourceDictionary>

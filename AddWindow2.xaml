@@ -5,25 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Datebook"
         mc:Ignorable="d"
-        Title="Новое событие" Height="220" Width="500">
+        Title="{DynamicResource ResourceKey=AddWindow2_Title}" Height="220" Width="500">
     <Grid Margin="0,0,-6.4,-1.6">
         <Grid HorizontalAlignment="Left" Height="52" Margin="30,30,0,0" VerticalAlignment="Top" Width="202">
-            <Label Content="Время:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="29" Width="70"/>
+            <Label Content="{DynamicResource  l31}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="29" Width="70"/>
             <TextBox x:Name="Time" HorizontalAlignment="Left" Height="29" Margin="80,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" TextChanged="TextBox_TextChanged"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="52" Margin="30,67,0,0" VerticalAlignment="Top" Width="202">
-            <Label Content="До:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="29" Width="70"/>
+            <Label Content="{DynamicResource  l32}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="29" Width="70"/>
             <TextBox x:Name="Do" HorizontalAlignment="Left" Height="29" Margin="80,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" TextChanged="TextBox_TextChanged"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="52" Margin="268,30,0,0" VerticalAlignment="Top" Width="202">
-            <Label Content="Место:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="29" Width="70"/>
+            <Label Content="{DynamicResource  l34}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="29" Width="70"/>
             <TextBox x:Name="Place" HorizontalAlignment="Left" Height="29" Margin="80,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" TextChanged="TextBox_TextChanged"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="52" Margin="30,108,0,0" VerticalAlignment="Top" Width="202">
-            <Label Content="Событие:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="29" Width="70"/>
+            <Label Content="{DynamicResource l33}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="29" Width="70"/>
             <TextBox x:Name="Sobitie" HorizontalAlignment="Left" Height="29" Margin="80,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" TextChanged="TextBox_TextChanged"/>
         </Grid>
-        <Button Content="Создать" HorizontalAlignment="Left" Margin="345,108,0,0" VerticalAlignment="Top" Width="125" Height="48" Click="Button_Click"/>
+        <Button Content="{DynamicResource  b21}" HorizontalAlignment="Left" Margin="345,108,0,0" VerticalAlignment="Top" Width="125" Height="48" Click="Button_Click"/>
 
     </Grid>
 </Window>
