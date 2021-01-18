@@ -1,0 +1,30 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:pb="clr-namespace:Microsoft.Expression.Prototyping.Behavior;assembly=Microsoft.Expression.Prototyping.Interactivity" x:Name="Screen_2_Name"
+	x:Class="DatebookPrototypeScreens.Screen_2"
+	Height="220" Width="500">
+
+	<Grid x:Name="LayoutRoot" Background="White">
+		<Label Background ="LightGray" Margin="-0.6,-1.4,8,0" VerticalAlignment="Top" Height="23.2" Content="    Добавление новой даты"/>
+		<Label HorizontalAlignment="Left" Margin="53,60.2,0,0" VerticalAlignment="Top" Width="84" Height="25.6" Content="День:"/>
+		<Label HorizontalAlignment="Left" Margin="53,0,0,69.4" VerticalAlignment="Bottom" Width="84" Height="29.6" Content="Год:"/>
+		<Label Margin="245,60.2,182.2,0" VerticalAlignment="Top" Height="25.6" Content="Месяц:"/>
+		<TextBox HorizontalAlignment="Left" Margin="137,60.2,0,0" VerticalAlignment="Top" Width="93.6" Height="25.6" TextWrapping="Wrap"/>
+		<TextBox HorizontalAlignment="Left" Margin="141,0,0,69.4" VerticalAlignment="Bottom" Width="80.8" Height="29.6" TextWrapping="Wrap"/>
+		<TextBox HorizontalAlignment="Right" Margin="0,60.2,95.8,0" VerticalAlignment="Top" Width="96" Height="25.6" TextWrapping="Wrap"/>
+		<Button HorizontalAlignment="Right" Margin="0,0,95.8,69.4" VerticalAlignment="Bottom" Width="110.4" Height="29.6" Content="Создать"/>
+		<Button HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="30.4">
+		<Image Source="Image1.png" Height="23" Width="23">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="MouseDown">
+					<pb:NavigateToScreenAction TargetScreen="DatebookPrototypeScreens.Screen_1"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</Image>
+		 </Button>
+	</Grid>
+</UserControl>

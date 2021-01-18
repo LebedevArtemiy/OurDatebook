@@ -1,0 +1,31 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:pb="clr-namespace:Microsoft.Expression.Prototyping.Behavior;assembly=Microsoft.Expression.Prototyping.Interactivity" x:Name="Screen_3_Name"
+	x:Class="DatebookPrototypeScreens.Screen_3"
+	 Height="220" Width="500">
+
+	<Grid x:Name="LayoutRoot" Background="White">
+		<Label Background ="LightGray" Margin="0.2,0,0,0" VerticalAlignment="Top" Height="26.4" Content="Новое событие"/>
+		<Label HorizontalAlignment="Left" Margin="38.6,60.8,0,0" VerticalAlignment="Top" Width="83.2" Height="28" Content="Время"/>
+		<Label HorizontalAlignment="Left" Margin="38.6,104.8,0,84.8" Width="83.2" Content="До"/>
+		<Label HorizontalAlignment="Left" Margin="38.6,0,0,39.2" VerticalAlignment="Bottom" Width="83.2" Height="30.4" Content="Событие"/>
+		<Label HorizontalAlignment="Right" Margin="0,60.8,156.6,0" VerticalAlignment="Top" Width="76.8" Height="28" Content="Место"/>
+		<TextBox HorizontalAlignment="Left" Margin="112.2,60.8,0,0" VerticalAlignment="Top" Width="79.2" Height="28" TextWrapping="Wrap"/>
+		<TextBox HorizontalAlignment="Left" Margin="121.8,104.8,0,84.8" Width="69.6" TextWrapping="Wrap"/>
+		<TextBox HorizontalAlignment="Left" Margin="121.8,0,0,39.2" VerticalAlignment="Bottom" Width="69.6" Height="30.4" TextWrapping="Wrap"/>
+		<TextBox HorizontalAlignment="Right" Margin="0,60.8,75,0" VerticalAlignment="Top" Width="77.6" Height="28" TextWrapping="Wrap"/>
+		<Button HorizontalAlignment="Right" Margin="0,0,36.6,30.4" VerticalAlignment="Bottom" Width="120" Height="39.2" Content="Создать"/>
+		<Button HorizontalAlignment="Right" VerticalAlignment="Top" Width="27.2" Height="26.4">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="Click">
+					<pb:NavigateToScreenAction TargetScreen="DatebookPrototypeScreens.Screen_1"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+			<Image Source="Image1.png" Height="23" Width="23"/>
+		</Button>
+	</Grid>
+</UserControl>
